@@ -1,16 +1,18 @@
 const myProfileInfo = document.querySelector(".overview");
 const username = "Anjie-MF";
 const displayRepoList = document.querySelector(".repo-list");
+const allRepoSection = document.querySelector(".repos");
+const repoDataSection = document.querySelector(".repo-data");
 
 const fetchMyInfo = async function () {
     const res = await fetch(`https://api.github.com/users/${username}`);
     const data = await res.json();
-    console.log(data);
     displayUserInfo(data);
 };
+
 fetchMyInfo();
 
-const displayUserInfo = async function (data) {
+const displayUserInfo = function (data) {
     const newDiv = document.createElement("div");
     newDiv.classList.add("user-info");
     newDiv.innerHTML = `
@@ -37,7 +39,21 @@ const displayInfoAboutEachRepo = function (repos) {
     for (const repo of repos) {
         const li = document.createElement("li");
         li.classList.add("repo");
-        li.innerHTML = `<h3>${repo.name}</h3>`;
+        li.innerHTML = `<h2>${repo.name}</h2>`;
         displayRepoList.append(li);
     }
 };
+
+displayRepoList.addEventListener("click", function (e) {
+    if (e.target.matches("h2")) {
+        const repoName = e.target.innerText;
+        getSpecificRepoInfo(repoName);
+    }
+});
+
+const getSpecificRepoInfo = async function (repoName) {
+    const fetchRequest = await fetch(`https://api.github.com/repos/${username}/${repoName}`);
+    const repoInfo = await fetchRequest.json();
+    console.log(repoInfo);
+
+}
