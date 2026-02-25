@@ -23,8 +23,8 @@ const displayUserInfo = async function (data) {
         <p><strong>Location:</strong> ${data.location}</p>
         <p><strong>Number of public repos:</strong> ${data.public_repos}</p>
     </div> `;
-
     myProfileInfo.append(newDiv);
+    fetchMyRepo();
 };
 
 const fetchMyRepo = async function () {
