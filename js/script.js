@@ -28,8 +28,16 @@ const displayUserInfo = async function (data) {
 };
 
 const fetchMyRepo = async function () {
-    const response = await fetch(`https://api.github.com/users/${username}/repos?sort:updated&per_page=100`);
+    const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`);
     const getData = await response.json();
-    console.log(getData);
-}
-fetchMyRepo();
+    displayInfoAboutEachRepo(getData);
+};
+
+const displayInfoAboutEachRepo = function (repos) {
+    for (const repo of repos) {
+        const li = document.createElement("li");
+        li.classList.add("repo");
+        li.innerHTML = `<h3>${repo.name}</h3>`;
+        displayRepoList.append(li);
+    }
+};
