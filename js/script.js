@@ -3,6 +3,10 @@ const username = "Anjie-MF";
 const displayRepoList = document.querySelector(".repo-list");
 const allRepoSection = document.querySelector(".repos");
 const repoDataSection = document.querySelector(".repo-data");
+const backToRepoGalleryButton = document.querySelector(".view-repos");
+const filterInput = document.querySelector(".filter-repos");
+
+
 
 const fetchMyInfo = async function () {
     const res = await fetch(`https://api.github.com/users/${username}`);
