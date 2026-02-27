@@ -90,3 +90,10 @@ const displaySpecificRepoInfo = function (repoInfo, languages) {
     `
     repoDataSection.append(div);
 };
+
+
+backToRepoGalleryButton.addEventListener("click", function () {
+    allRepoSection.classList.remove("hide");
+    repoDataSection.classList.add("hide");
+    backToRepoGalleryButton.classList.add("hide");
+});
