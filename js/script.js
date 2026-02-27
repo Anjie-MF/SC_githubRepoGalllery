@@ -40,6 +40,7 @@ const fetchMyRepo = async function () {
 };
 
 const displayInfoAboutEachRepo = function (repos) {
+    filterInput.classList.remove("hide");
     for (const repo of repos) {
         const li = document.createElement("li");
         li.classList.add("repo");
@@ -89,6 +90,7 @@ const displaySpecificRepoInfo = function (repoInfo, languages) {
     <a class="visit" href="${repoInfo.html_url}" target="_blank" rel="noreferrer noopener">View Repo on GitHub!</a>
     `
     repoDataSection.append(div);
+    backToRepoGalleryButton.classList.remove("hide");
 };
 
 
