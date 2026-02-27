@@ -71,8 +71,6 @@ const getSpecificRepoInfo = async function (repoName) {
     for (const language in languageData) {
         languages.push(language);
     }
-    // console.log(languages);
-
     displaySpecificRepoInfo(repoInfo, languages);
 }
 
@@ -98,4 +96,19 @@ backToRepoGalleryButton.addEventListener("click", function () {
     allRepoSection.classList.remove("hide");
     repoDataSection.classList.add("hide");
     backToRepoGalleryButton.classList.add("hide");
+});
+
+filterInput.addEventListener("input", function (e) {
+    const searchText = e.target.value;
+    const repos = document.querySelectorAll(".repo");
+    const lowercaseSearchText = searchText.toLowerCase();
+
+    for (const repo of repos) {
+        const repoSearchText = repo.innerText.toLowerCase();
+        if (repoSearchText.includes(lowercaseSearchText)) {
+            repo.classList.remove("hide");
+        } else {
+            repo.classList.add("hide");
+        }
+    }
 });
