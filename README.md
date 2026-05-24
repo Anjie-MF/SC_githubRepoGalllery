@@ -2,7 +2,7 @@
 
 A dynamic single-page app that fetches and displays a GitHub user's public repositories via the GitHub REST API. Built to practice working with external APIs and async JavaScript.
 
-[Live Demo](#) 
+[Live Demo](https://anjie-mf.github.io/SC_githubRepoGalllery/) 
 
 ---
 
